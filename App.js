@@ -1,29 +1,33 @@
 import React, { useEffect, useState} from 'react'
-import { View, Text, SafeAreaView, Image } from 'react-native';
-
+import { View, Text, SafeAreaView, Image, ScrollView } from 'react-native';
+import styled from "styled-components/native";
+import Icon from "react-native-vector-icons/Ionicons"
 import Data from "./src/Data"
+
+
+import { PreviewUnits } from "./src/components/preview-units.component";
 
 
 const App = () => {
 
-    const url = Data.nike.items[0].images[0]
+  
+  let [data, setData ] = useState(Data);
 
-
+  useEffect(() => {
+    setData(Data)
+  }, [])
 
   return (
         <SafeAreaView>
 
-    <Text>Hello Worldxxxx</Text>
-
-    <Image 
-    
-            source={url}
-          style={{
-            width: "100%",
-            height: 400
-          }}
-    />
-
+            <ScrollView>
+               <PreviewUnits data={data} type="women"/>
+               <PreviewUnits data={data} type="jordan"/>
+               <PreviewUnits data={data} type="kids"/>
+               <PreviewUnits data={data} type="nike"/>
+               <PreviewUnits data={data} type="adidas"/>
+            </ScrollView>
+         
         </SafeAreaView>
   )
 }

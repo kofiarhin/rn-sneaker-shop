@@ -9,11 +9,9 @@ const Data = {
     // JORDAN
         jordan: {
             id: 1,
-            title: "jordan",
-            slug: "The Air Jordan brand has cemented itself as a household name since the release of its first basketball shoe back in 1985 thanks to Michael Jordan’s glittering career. Since then, Nike has released numerous popular trainers and colourways from Jordan brand, including sneaker collaborations with the likes of Travis Scott, Dior, Fragment, Off-White, and UNION LA.",
+            title: "jordans",
             items: [
                 {
-                    id:1,
                     name: "AIR JORDAN 1 MID PS 'BANNED'",
                     price: 400.99,
                     sizes: [34, 38, 40, 45],
@@ -45,7 +43,6 @@ const Data = {
                 },
 
                 {
-                    id:3,
                     name: "AIR JORDAN 1 MID SE 'TURF ORANGE'",
                     price: 300.99,
                     sizes: [34, 38, 40, 45],
@@ -58,7 +55,6 @@ const Data = {
                 },
 
                 {
-                    id:4,
                     name: "AIR JORDAN 1 WMNS MID SE 'PEACH MOCHA'",
                     price: 404,
                     sizes: [34, 38, 40, 45],
@@ -72,7 +68,6 @@ const Data = {
                 },
 
                  {
-                    id:5,
                     name: "AIR JORDAN 4 RETRO 'ORANGE METALLIC'",
                     price: 404,
                     sizes: [34, 38, 40, 45],
@@ -84,7 +79,6 @@ const Data = {
                     ]
                 },
                 {
-                    id:6,
                     name: "AIR JORDAN 4 RETRO 'TAUPE HAZE'",
                     price: 379.99,
                     sizes: [34, 38, 40, 45],
@@ -97,7 +91,6 @@ const Data = {
                 },
 
                 {
-                    id:7,
                     name: "AIR JORDAN 4 WMNS RETRO 'STARFISH'",
                     price: 379.99,
                    sizes: [34, 38, 40, 45],
@@ -110,7 +103,6 @@ const Data = {
                 },
 
                 {
-                    id:8,
                     name: "AIR JORDAN 1 ZOOM COMFORT 'LONDON'",
                     price: 219.99,
                     sizes: [36, 37, 38],
@@ -123,7 +115,6 @@ const Data = {
                 },
 
                 {
-                    id:32,
                     name: "AIR JORDAN 1 WMNS MID 'APRICOT'",
                     price: 219.99, 
                     sizes: [36, 37, 38],
@@ -137,7 +128,6 @@ const Data = {
                 },
 
                  {
-                    id:33,
                     name: "AIR JORDAN 1 RETRO HIGH OG 'BLACK METALLIC GOLD'",
                     price: 239.99, 
                     sizes: [36, 37, 38],
@@ -159,11 +149,9 @@ const Data = {
         // ADIDAS
 
          adidas: {
-            id: 2,
             title: "adidas",
             items: [
                 {
-                    id:9,
                     name: "ADIDAS YEEZY 700 V3 'CLAY BROWN'",
                     price: 480,
                     sizes: [34, 38, 40, 45],
@@ -177,7 +165,6 @@ const Data = {
                 },
 
                 {
-                    id:10,
                     name: "ADIDAS YEEZY BOOST 350 V2 'YEEZREEL NON-REFLECTIVE'",
                     price: 450,
                     sizes: [34, 38, 40, 45],
@@ -191,7 +178,6 @@ const Data = {
                 },
 
                 {
-                    id:11,
                     name: "ADIDAS YEEZY BOOST 350 V2 CLAY",
                     price: 300,
                     sizes: [34, 38, 40, 45],
@@ -204,7 +190,6 @@ const Data = {
                 },
 
                 {
-                    id:12,
                     name: "ADIDAS YEEZY BOOST 700 ‘SUN'",
                     price: 400,
                     sizes: [34, 38, 40, 45],
@@ -217,7 +202,6 @@ const Data = {
                 },
 
                                 {
-                    id:13,
                     name: "ADIDAS YEEZY 700 V3 'KYANITE'",
                     price: 350,
                     sizes: [34, 38, 40, 45],
@@ -231,7 +215,6 @@ const Data = {
 
 
                 {
-                    id:14,
                     name: "ADIDAS YEEZY BOOST 380 'CALCITE GLOW'",
                     price: 279.99,
                     sizes: [34, 38, 40, 45],
@@ -247,6 +230,101 @@ const Data = {
             ]
         },
 
+
+
+        // ADIDAS
+
+         women: {
+            title: "women",
+            items: [
+                {
+                    name: "AIR JORDAN 1 WMNS LOW SE 'DARK BEETROOT'",
+                    price: 480,
+                    sizes: [34, 38, 40, 45],
+                    images: [
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_LOW_SE_DARK_BEETROOT/img-1.jpeg"),
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_LOW_SE_DARK_BEETROOT/img-2.jpeg"),
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_LOW_SE_DARK_BEETROOT/img-3.jpeg"),
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_LOW_SE_DARK_BEETROOT/img-4.jpeg")
+                    ]
+
+                },
+
+
+                {
+                    name: "AIR JORDAN 1 WMNS MID 'SIREN RED' ",
+                    price: 480,
+                    sizes: [34, 38, 40, 45],
+                    images: [
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SIREN_RED/img-1.jpeg"),
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SIREN_RED/img-2.jpeg"),
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SIREN_RED/img-3.jpeg"),
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SIREN_RED/img-4.jpeg"),
+                    ]
+
+                },
+
+
+                {
+                    name: "AIR JORDAN 1 WMNS MID SE 'PEACH MOCHA'",
+                    price: 480,
+                    sizes: [34, 38, 40, 45],
+                    images: [
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SE_PEACH_MOCHA/img-1.jpeg"),
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SE_PEACH_MOCHA/img-2.jpeg"),
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SE_PEACH_MOCHA/img-3.jpeg"),
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SE_PEACH_MOCHA/img-4.jpeg"),
+                    ]
+
+                },
+
+                {
+                    name: "AIR JORDAN 1 WMNS RETRO HIGH OG 'SILVER TOE'",
+                    price: 480,
+                    sizes: [34, 38, 40, 45],
+                    images: [
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_RETRO_HIGH_OG_SILVER_TOE/img-1.jpeg"),
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_RETRO_HIGH_OG_SILVER_TOE/img-2.jpeg"),
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_RETRO_HIGH_OG_SILVER_TOE/img-3.jpeg"),
+                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_RETRO_HIGH_OG_SILVER_TOE/img-4.jpeg"),
+                    ]
+
+                },
+
+                 {
+                    name: "AIR JORDAN 4 RETRO OG GS 'FIRE RED' 2020",
+                    price: 480,
+                    sizes: [34, 38, 40, 45],
+                    images: [
+                        require("../assets/images/sneakers/women/AIR_JORDAN_4_RETRO_OG_GS_FIRE_RED_2020/img-1.jpeg"),
+                        require("../assets/images/sneakers/women/AIR_JORDAN_4_RETRO_OG_GS_FIRE_RED_2020/img-2.jpeg"),
+                        require("../assets/images/sneakers/women/AIR_JORDAN_4_RETRO_OG_GS_FIRE_RED_2020/img-3.jpeg"),
+                        require("../assets/images/sneakers/women/AIR_JORDAN_4_RETRO_OG_GS_FIRE_RED_2020/img-4.jpeg"),
+                       
+                    ]
+
+                },
+
+                 {
+                    name: "NIKE AIR MAX 90 WMNS 'VALENTINE'S DAY'",
+                    price: 480,
+                    sizes: [34, 38, 40, 45],
+                    images: [
+                        require("../assets/images/sneakers/women/NIKE_AIR_MAX_90_WMNS_VALENTINES_DAY/img-1.jpeg"),
+                        require("../assets/images/sneakers/women/NIKE_AIR_MAX_90_WMNS_VALENTINES_DAY/img-2.jpeg"),
+                        require("../assets/images/sneakers/women/NIKE_AIR_MAX_90_WMNS_VALENTINES_DAY/img-3.jpeg"),
+                        require("../assets/images/sneakers/women/NIKE_AIR_MAX_90_WMNS_VALENTINES_DAY/img-4.jpeg"),
+                       
+                    ]
+
+                },
+             
+
+
+            ]
+        },
+
+// end women
 
 
         // NIKE 
@@ -342,91 +420,95 @@ const Data = {
 
 
 
-        // WOMEN
-        women: {
-            id: 4,
-            title: "women",
-            items: [
-                {
-                    id:28,
-                    name: "AIR JORDAN 1 WMNS LOW SE 'DARK BEETROOT'",
-                    price: 400,
-                    sizes: [34, 38, 40, 45],
-                    images: [
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_LOW_SE_DARK_BEETROOT/img-1.jpeg"),
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_LOW_SE_DARK_BEETROOT/img-2.jpeg"),
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_LOW_SE_DARK_BEETROOT/img-3.jpeg"),
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_LOW_SE_DARK_BEETROOT/img-4.jpeg"),
-                    ]
-                },
+        // // WOMEN
+        // women: {
+        //     id: 4,
+        //     title: "women",
+        //     items: [
+        //         {
+        //             id:28,
+        //             name: "AIR JORDAN 1 WMNS LOW SE 'DARK BEETROOT'",
+        //             price: 400,
+        //             sizes: [34, 38, 40, 45],
+        //             images: [
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_LOW_SE_DARK_BEETROOT/img-1.jpeg"),
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_LOW_SE_DARK_BEETROOT/img-2.jpeg"),
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_LOW_SE_DARK_BEETROOT/img-3.jpeg"),
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_LOW_SE_DARK_BEETROOT/img-4.jpeg"),
+        //             ]
+        //         },
 
-                {
-                    id:29,
-                    name: "AIR JORDAN 1 WMNS MID 'SIREN RED' ",
-                    price: 450,
-                    sizes: [34, 38, 40, 45],
-                    images: [
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SIREN_RED/img-1.jpeg"),
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SIREN_RED/img-2.jpeg"),
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SIREN_RED/img-3.jpeg"),
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SIREN_RED/img-4.jpeg"),
-                    ]
-                },
+        //         {
+        //             id:29,
+        //             name: "AIR JORDAN 1 WMNS MID 'SIREN RED' ",
+        //             price: 450,
+        //             sizes: [34, 38, 40, 45],
+        //             images: [
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SIREN_RED/img-1.jpeg"),
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SIREN_RED/img-2.jpeg"),
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SIREN_RED/img-3.jpeg"),
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SIREN_RED/img-4.jpeg"),
+        //             ]
+        //         },
 
-                {
-                    id:30,
-                    name: "AIR JORDAN 1 WMNS MID SE 'PEACH MOCHA'",
-                    price: 300,
-                    sizes: [34, 38, 40, 45],
-                    images: [
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SE_PEACH_MOCHA/img-1.jpeg"),
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SE_PEACH_MOCHA/img-2.jpeg"),
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SE_PEACH_MOCHA/img-3.jpeg"),
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SE_PEACH_MOCHA/img-4.jpeg")
-                    ]
-                },
+        //         {
+        //             id:30,
+        //             name: "AIR JORDAN 1 WMNS MID SE 'PEACH MOCHA'",
+        //             price: 300,
+        //             sizes: [34, 38, 40, 45],
+        //             images: [
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SE_PEACH_MOCHA/img-1.jpeg"),
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SE_PEACH_MOCHA/img-2.jpeg"),
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SE_PEACH_MOCHA/img-3.jpeg"),
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_MID_SE_PEACH_MOCHA/img-4.jpeg")
+        //             ]
+        //         },
 
-                {
-                    id:31,
-                    name: "AIR JORDAN 1 WMNS RETRO HIGH OG 'SILVER TOE'",
-                    price: 400,
-                    sizes: [34, 38, 40, 45],
-                    iamges: [
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_RETRO_HIGH_OG_SILVER_TOE/img-1.jpeg"),
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_RETRO_HIGH_OG_SILVER_TOE/img-2.jpeg"),
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_RETRO_HIGH_OG_SILVER_TOE/img-3.jpeg"),
-                        require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_RETRO_HIGH_OG_SILVER_TOE/img-4.jpeg")
-                    ]
-                },
+        //         {
+        //             id:31,
+        //             name: "AIR JORDAN 1 WMNS RETRO HIGH OG 'SILVER TOE'",
+        //             price: 400,
+        //             sizes: [34, 38, 40, 45],
+        //             iamges: [
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_RETRO_HIGH_OG_SILVER_TOE/img-1.jpeg"),
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_RETRO_HIGH_OG_SILVER_TOE/img-2.jpeg"),
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_RETRO_HIGH_OG_SILVER_TOE/img-3.jpeg"),
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_1_WMNS_RETRO_HIGH_OG_SILVER_TOE/img-4.jpeg")
+        //             ]
+        //         },
 
-                {
-                    id:32,
-                    name: "AIR JORDAN 4 RETRO OG GS 'FIRE RED' 2020",
-                    price: 400,
-                    sizes: [34, 38, 40, 45],
-                    images: [
-                        require("../assets/images/sneakers/women/AIR_JORDAN_4_RETRO_OG_GS_FIRE_RED_2020/img-1.jpeg"),
-                        require("../assets/images/sneakers/women/AIR_JORDAN_4_RETRO_OG_GS_FIRE_RED_2020/img-2.jpeg"),
-                        require("../assets/images/sneakers/women/AIR_JORDAN_4_RETRO_OG_GS_FIRE_RED_2020/img-3.jpeg"),
-                        require("../assets/images/sneakers/women/AIR_JORDAN_4_RETRO_OG_GS_FIRE_RED_2020/img-4.jpeg")
-                    ]
-                },
+        //         {
+        //             id:32,
+        //             name: "AIR JORDAN 4 RETRO OG GS 'FIRE RED' 2020",
+        //             price: 400,
+        //             sizes: [34, 38, 40, 45],
+        //             images: [
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_4_RETRO_OG_GS_FIRE_RED_2020/img-1.jpeg"),
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_4_RETRO_OG_GS_FIRE_RED_2020/img-2.jpeg"),
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_4_RETRO_OG_GS_FIRE_RED_2020/img-3.jpeg"),
+        //                 require("../assets/images/sneakers/women/AIR_JORDAN_4_RETRO_OG_GS_FIRE_RED_2020/img-4.jpeg")
+        //             ]
+        //         },
 
-                  {
-                    id:33,
-                    name: "NIKE AIR MAX 90 WMNS 'VALENTINE'S DAY'",
-                    price: 400,
-                    sizes: [34, 38, 40, 45],
-                    images: [
-                        require("../assets/images/sneakers/women/NIKE_AIR_MAX_90_WMNS_VALENTINES_DAY/img-1.jpeg"),
-                        require("../assets/images/sneakers/women/NIKE_AIR_MAX_90_WMNS_VALENTINES_DAY/img-2.jpeg"),
-                        require("../assets/images/sneakers/women/NIKE_AIR_MAX_90_WMNS_VALENTINES_DAY/img-3.jpeg"),
-                        require("../assets/images/sneakers/women/NIKE_AIR_MAX_90_WMNS_VALENTINES_DAY/img-4.jpeg"),
+        //           {
+        //             id:33,
+        //             name: "NIKE AIR MAX 90 WMNS 'VALENTINE'S DAY'",
+        //             price: 400,
+        //             sizes: [34, 38, 40, 45],
+        //             images: [
+        //                 require("../assets/images/sneakers/women/NIKE_AIR_MAX_90_WMNS_VALENTINES_DAY/img-1.jpeg"),
+        //                 require("../assets/images/sneakers/women/NIKE_AIR_MAX_90_WMNS_VALENTINES_DAY/img-2.jpeg"),
+        //                 require("../assets/images/sneakers/women/NIKE_AIR_MAX_90_WMNS_VALENTINES_DAY/img-3.jpeg"),
+        //                 require("../assets/images/sneakers/women/NIKE_AIR_MAX_90_WMNS_VALENTINES_DAY/img-4.jpeg"),
 
-                    ]
-                },
-            ]
-        },
+        //             ]
+        //         },
+        //     ]
+        // },
+
+
+        // // end women
+
 
 
 

@@ -30,6 +30,7 @@
 		00E356EE1AD99517003FC87E /* playgroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = playgroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* playgroundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = playgroundTests.m; sourceTree = "<group>"; };
+		047E8E05268563B400C568CF /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = playground/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = playground/AppDelegate.m; sourceTree = "<group>"; };
@@ -83,6 +84,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		047E8E042685635D00C568CF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				047E8E05268563B400C568CF /* Ionicons.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		0CA620694D74F7650B607624 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,13 +100,13 @@
 				65839AFA874DD760E6E77A97 /* Pods-playground-playgroundTests.debug.xcconfig */,
 				D1B54AC3BEF18890C9DC6AA5 /* Pods-playground-playgroundTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		13B07FAE1A68108700A75B9A /* playground */ = {
 			isa = PBXGroup;
 			children = (
+				047E8E042685635D00C568CF /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
