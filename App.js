@@ -5,7 +5,14 @@ import Icon from "react-native-vector-icons/Ionicons"
 import Data from "./src/Data"
 
 
-import { PreviewUnits } from "./src/components/preview-units.component";
+const Title = styled.Text`
+    font-family:  Montserrat-Bold;
+    font-size: 30px;
+`;
+
+const Container = styled.View`
+    padding: 20px;
+`
 
 
 const App = () => {
@@ -21,11 +28,10 @@ const App = () => {
         <SafeAreaView>
 
             <ScrollView>
-               <PreviewUnits data={data} type="women"/>
-               <PreviewUnits data={data} type="jordan"/>
-               <PreviewUnits data={data} type="kids"/>
-               <PreviewUnits data={data} type="nike"/>
-               <PreviewUnits data={data} type="adidas"/>
+                   <Container> 
+
+                  <Title> New Content</Title>
+                   </Container>
             </ScrollView>
          
         </SafeAreaView>
