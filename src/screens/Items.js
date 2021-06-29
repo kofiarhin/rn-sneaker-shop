@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {width} from '../constants/layout';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const Items = ({navigation, route}) => {
   const [data, setData] = useState([]);
@@ -29,14 +30,33 @@ export const Items = ({navigation, route}) => {
           flex: 1,
           padding: 10,
         }}>
-        <Text
+        {/* header */}
+        <View
           style={{
-            fontSize: 30,
-            textTransform: 'capitalize',
-            textAlign: 'center',
+            alignItems: 'center',
+            flexDirection: 'row',
+            alignItems: 'center',
           }}>
-          {title}
-        </Text>
+          {/* go Back */}
+          <TouchableOpacity
+            style={{
+              backgroundColor: 'black',
+              borderRadius: 15,
+            }}
+            onPress={() => navigation.goBack()}>
+            <Icon name="chevron-back-outline" color="white" size={25} />
+          </TouchableOpacity>
+
+          <Text
+            style={{
+              fontSize: 30,
+              textTransform: 'capitalize',
+              textAlign: 'center',
+              flex: 1,
+            }}>
+            {title}
+          </Text>
+        </View>
 
         <FlatList
           key={`_`}
@@ -75,8 +95,6 @@ export const Items = ({navigation, route}) => {
             );
           }}
         />
-
-        <Button title="Go Back" onPress={() => navigation.goBack()} />
       </View>
     </SafeAreaView>
   );
