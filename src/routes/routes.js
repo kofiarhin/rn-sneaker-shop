@@ -68,8 +68,10 @@ const AppStackScreen = () => {
     return <AppStack.Navigator
 
                 screenOptions={{
-                    headerShown: false
+                    headerShown: false,
+
                 }}
+                initialRouteName="MainTabs"
     >
         <AppStack.Screen name="Landing" component={Landing}  />
         <AppStack.Screen name="MainTabs" component={MainTabsScreen}  />
