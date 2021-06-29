@@ -3,6 +3,8 @@ import { NavigationContainer} from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
+import {colors} from "../constants/colors"
+
 import { 
     Landing,
     Home,
@@ -10,50 +12,53 @@ import {
     Cart,
     Favourite,
     Profile,
-    Details
+    Details,
+    Items
 } from "../screens/index"
 
 import Icon from "react-native-vector-icons/Ionicons"
+import { Colors } from "react-native/Libraries/NewAppScreen"
 
 
-// home tabs
-const HomeTabs = createBottomTabNavigator();
-const HomeTabsScreen = () => {
-    return <HomeTabs.Navigator
+// MainTabs
+const MainTabs = createBottomTabNavigator();
+const MainTabsScreen = () => {
+    return <MainTabs.Navigator
     
     
             tabBarOptions={{
-                showLabel: false
+                showLabel: false,
+                activeTintColor: colors.primary
             }}
     >
 
         {/* home screen */}
-        <HomeTabs.Screen name="Home" component={Home} options={{
+        <MainTabs.Screen name="Home" component={Home} options={{
             tabBarIcon: (props) => <Icon name="md-home"  size={props.size} color={props.color}  />
         }} />
 
 
          {/* search screen */}
-        <HomeTabs.Screen name="Search" component={Search} options={{
+        <MainTabs.Screen name="Search" component={Search} options={{
             tabBarIcon: (props) => <Icon name="search-outline"  size={props.size} color={props.color}  />
         }} />
 
         {/* cart screen */}
-        <HomeTabs.Screen name="Cart" component={Cart} options={{
+        <MainTabs.Screen name="Cart" component={Cart} options={{
             tabBarIcon: (props) => <Icon name="cart-outline"  size={props.size} color={props.color}  />
         }} />
 
         {/* favourite screen */}
-        <HomeTabs.Screen name="Favourite" component={Favourite} options={{
+        <MainTabs.Screen name="Favourite" component={Favourite} options={{
             tabBarIcon: (props) => <Icon name="heart-outline"  size={props.size} color={props.color}  />
         }} />
 
 
         {/* profile screen */}
-        <HomeTabs.Screen name="Profile" component={Profile} options={{
+        <MainTabs.Screen name="Profile" component={Profile} options={{
             tabBarIcon: (props) => <Icon name="person-outline"  size={props.size} color={props.color}  />
         }} />
-    </HomeTabs.Navigator>
+    </MainTabs.Navigator>
 }
 
 
@@ -67,7 +72,8 @@ const AppStackScreen = () => {
                 }}
     >
         <AppStack.Screen name="Landing" component={Landing}  />
-        <AppStack.Screen name="Home" component={HomeTabsScreen}  />
+        <AppStack.Screen name="MainTabs" component={MainTabsScreen}  />
+        <AppStack.Screen name="Items" component={Items}  />
         <AppStack.Screen name="Details" component={Details}  />
     </AppStack.Navigator>
 }

@@ -19,7 +19,7 @@ export const Landing = ({ navigation}) => {
     useEffect(() => { 
 
                 setTimeout(() => {
-                            navigation.navigate("Home")
+                            navigation.navigate("MainTabs")
 
                  }, 2000)
 

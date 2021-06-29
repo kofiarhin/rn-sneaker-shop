@@ -7,6 +7,7 @@ import { Cart } from "./Cart"
 import { Favourite} from "./Favourite"
 import { Profile} from "./Profile"
 import { Details} from "./Details"
+import { Items} from "./Items"
 
 export {
     Landing,
@@ -15,5 +16,6 @@ export {
     Cart,
     Favourite,
     Profile,
-    Details
+    Details,
+    Items
 }
