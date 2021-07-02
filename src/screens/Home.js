@@ -7,26 +7,19 @@ import {
   Dimensions,
   Image,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import styled from 'styled-components/native';
 import Data from '../Data';
 import {width, height} from '../constants/layout';
-import {DefaultText} from '../constants';
+import {DefaultText, Container, Heading} from '../constants';
+
+import {CategoriesPreview} from '../components/CategoriesPreview/CategoriesPreview';
 
 const Title = styled.Text`
   font-size: 20px;
   text-align: center;
   font-family: Montserrat-bold;
-`;
-const Container = styled.View`
-  flex: 1;
-  padding: 20px;
-`;
-
-const ItemTitle = styled.Text`
-  font-size: 20px;
-  text-transform: capitalize;
-  font-family: Montserrat-Bold;
 `;
 
 const renderHeader = () => {
@@ -55,7 +48,8 @@ const renderMainPreview = (data, navigation) => {
             }}
             key={item.title}
             onPress={() => navigation.navigate('Items', {item})}>
-            <ItemTitle> {item.title} </ItemTitle>
+            <Heading> {item.title} </Heading>
+
             <Image
               source={item.items[0].images[0]}
               style={{
@@ -76,32 +70,51 @@ export const Home = ({navigation}) => {
 
   useEffect(() => {
     setData(Data);
-  }, []);
+  });
 
   return (
     <SafeAreaView
       style={{
         flex: 1,
       }}>
-      <Container>
-        {renderHeader()}
+      <ScrollView>
+        <Container>
+          {renderHeader()}
 
-        <View
-          style={{
-            height: height * 0.4,
-          }}>
-          {renderMainPreview(data, navigation)}
-        </View>
+          <View
+            style={{
+              height: height * 0.4,
+            }}>
+            {renderMainPreview(data, navigation)}
+          </View>
 
-        {/* categories preview */}
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: 'orange',
-          }}>
-          <DefaultText>Hello World</DefaultText>
-        </View>
-      </Container>
+          {/* categories preview */}
+          <View>
+            <CategoriesPreview
+              title="jordan"
+              data={data['jordan']}
+              navigation={navigation}
+            />
+            <CategoriesPreview
+              title="adidas"
+              data={data['adidas']}
+              navigation={navigation}
+            />
+
+            <CategoriesPreview
+              title="women"
+              data={data['women']}
+              navigation={navigation}
+            />
+
+            <CategoriesPreview
+              title="kids"
+              data={data['kids']}
+              navigation={navigation}
+            />
+          </View>
+        </Container>
+      </ScrollView>
     </SafeAreaView>
   );
 };

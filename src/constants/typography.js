@@ -23,6 +23,13 @@ export const DefaultText = styled.Text`
 `;
 
 export const Heading = styled.Text`
+  font-size: 30px;
+  font-family: Montserrat-Bold;
+  text-transform: capitalize;
+`;
+
+export const SubHeading = styled.Text`
   font-size: 20px;
   font-family: Montserrat-Bold;
+  text-transform: capitalize;
 `;
