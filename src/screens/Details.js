@@ -77,7 +77,7 @@ export const Details = ({navigation, route}) => {
   const [cartData, setCartData] = useState([]);
 
   const addItemToCart = item => {
-    console.log(item);
+    cartData.push(item);
   };
 
   return (
@@ -187,7 +187,7 @@ export const Details = ({navigation, route}) => {
               padding: 20,
               borderRadius: 40,
             }}
-            onPress={() => navigation.navigate('Cart', {cartItem: data})}>
+            onPress={() => addItemToCart(data)}>
             <Text
               style={{
                 color: 'white',

@@ -10,7 +10,8 @@ import {
 } from 'react-native';
 import styled from 'styled-components/native';
 import Data from '../Data';
-import {width} from '../constants/layout';
+import {width, height} from '../constants/layout';
+import {DefaultText} from '../constants';
 
 const Title = styled.Text`
   font-size: 20px;
@@ -50,6 +51,7 @@ const renderMainPreview = (data, navigation) => {
           <TouchableOpacity
             style={{
               width,
+              height: '100%',
             }}
             key={item.title}
             onPress={() => navigation.navigate('Items', {item})}>
@@ -58,8 +60,9 @@ const renderMainPreview = (data, navigation) => {
               source={item.items[0].images[0]}
               style={{
                 width: '100%',
-                height: 400,
+                height: '100%',
               }}
+              resizeMode="cover"
             />
           </TouchableOpacity>
         );
@@ -82,7 +85,22 @@ export const Home = ({navigation}) => {
       }}>
       <Container>
         {renderHeader()}
-        {renderMainPreview(data, navigation)}
+
+        <View
+          style={{
+            height: height * 0.4,
+          }}>
+          {renderMainPreview(data, navigation)}
+        </View>
+
+        {/* categories preview */}
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: 'orange',
+          }}>
+          <DefaultText>Hello World</DefaultText>
+        </View>
       </Container>
     </SafeAreaView>
   );
