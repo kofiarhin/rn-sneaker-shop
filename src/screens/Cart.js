@@ -8,7 +8,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import {CartContext} from '../services/CartContext';
+import {CartContext} from '../context/CartContext';
 import {colors} from '../constants';
 
 export const Cart = ({navigation, route}) => {

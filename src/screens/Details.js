@@ -11,7 +11,7 @@ import {
 import {width} from '../constants/layout';
 import {colors} from '../constants/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {CartContext} from '../services/CartContext';
+import {CartContext} from '../context/CartContext';
 
 // render sizes
 
@@ -78,10 +78,11 @@ export const Details = ({navigation, route}) => {
   // get cart data
   const {cartData, setCartData} = useContext(CartContext);
 
-  console.log({cartData});
-
   const addItemToCart = item => {
-    let newCartData = [...cartData, item];
+    // todo -  check for duplicates
+
+    let newCartData = [item, ...cartData];
+
     setCartData(newCartData);
     navigation.navigate('Cart');
   };
