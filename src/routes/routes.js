@@ -1,89 +1,117 @@
-import React from "react"
-import { NavigationContainer} from "@react-navigation/native"
-import { createStackNavigator } from "@react-navigation/stack"
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import {colors} from "../constants/colors"
+import {colors} from '../constants/colors';
 
-import { 
-    Landing,
-    Home,
-    Search,
-    Cart,
-    Favourite,
-    Profile,
-    Details,
-    Items
-} from "../screens/index"
+import {
+  Landing,
+  Home,
+  Search,
+  Cart,
+  Favourite,
+  Profile,
+  Details,
+  Items,
+} from '../screens/index';
 
-import Icon from "react-native-vector-icons/Ionicons"
-import { Colors } from "react-native/Libraries/NewAppScreen"
+import Icon from 'react-native-vector-icons/Ionicons';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
+import {CartContextProvider} from '../services/CartContext';
 
 // MainTabs
 const MainTabs = createBottomTabNavigator();
 const MainTabsScreen = () => {
-    return <MainTabs.Navigator
-    
-    
-            tabBarOptions={{
-                showLabel: false,
-                activeTintColor: colors.primary
-            }}
-    >
+  return (
+    <MainTabs.Navigator
+      tabBarOptions={{
+        showLabel: false,
+        activeTintColor: colors.primary,
+      }}>
+      {/* home screen */}
+      <MainTabs.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: props => (
+            <Icon name="md-home" size={props.size} color={props.color} />
+          ),
+        }}
+      />
 
-        {/* home screen */}
-        <MainTabs.Screen name="Home" component={Home} options={{
-            tabBarIcon: (props) => <Icon name="md-home"  size={props.size} color={props.color}  />
-        }} />
+      {/* search screen */}
+      <MainTabs.Screen
+        name="Search"
+        component={Search}
+        options={{
+          tabBarIcon: props => (
+            <Icon name="search-outline" size={props.size} color={props.color} />
+          ),
+        }}
+      />
 
+      {/* cart screen */}
+      <MainTabs.Screen
+        name="Cart"
+        component={Cart}
+        options={{
+          tabBarIcon: props => (
+            <Icon name="cart-outline" size={props.size} color={props.color} />
+          ),
+        }}
+      />
 
-         {/* search screen */}
-        <MainTabs.Screen name="Search" component={Search} options={{
-            tabBarIcon: (props) => <Icon name="search-outline"  size={props.size} color={props.color}  />
-        }} />
+      {/* favourite screen */}
+      <MainTabs.Screen
+        name="Favourite"
+        component={Favourite}
+        options={{
+          tabBarIcon: props => (
+            <Icon name="heart-outline" size={props.size} color={props.color} />
+          ),
+        }}
+      />
 
-        {/* cart screen */}
-        <MainTabs.Screen name="Cart" component={Cart} options={{
-            tabBarIcon: (props) => <Icon name="cart-outline"  size={props.size} color={props.color}  />
-        }} />
-
-        {/* favourite screen */}
-        <MainTabs.Screen name="Favourite" component={Favourite} options={{
-            tabBarIcon: (props) => <Icon name="heart-outline"  size={props.size} color={props.color}  />
-        }} />
-
-
-        {/* profile screen */}
-        <MainTabs.Screen name="Profile" component={Profile} options={{
-            tabBarIcon: (props) => <Icon name="person-outline"  size={props.size} color={props.color}  />
-        }} />
+      {/* profile screen */}
+      <MainTabs.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarIcon: props => (
+            <Icon name="person-outline" size={props.size} color={props.color} />
+          ),
+        }}
+      />
     </MainTabs.Navigator>
-}
-
+  );
+};
 
 const AppStack = createStackNavigator();
 
 const AppStackScreen = () => {
-    return <AppStack.Navigator
-
-                screenOptions={{
-                    headerShown: false,
-
-                }}
-                initialRouteName="MainTabs"
-    >
-        <AppStack.Screen name="Landing" component={Landing}  />
-        <AppStack.Screen name="MainTabs" component={MainTabsScreen}  />
-        <AppStack.Screen name="Items" component={Items}  />
-        <AppStack.Screen name="Details" component={Details}  />
+  return (
+    <AppStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      initialRouteName="MainTabs">
+      <AppStack.Screen name="Landing" component={Landing} />
+      <AppStack.Screen name="MainTabs" component={MainTabsScreen} />
+      <AppStack.Screen name="Items" component={Items} />
+      <AppStack.Screen name="Details" component={Details} />
     </AppStack.Navigator>
-}
+  );
+};
 
 const Routes = () => {
-
-    return <NavigationContainer>
-            <AppStackScreen /> 
-    </NavigationContainer>
-}
-export default Routes; 
+  return (
+    <CartContextProvider>
+      <NavigationContainer>
+        <AppStackScreen />
+      </NavigationContainer>
+    </CartContextProvider>
+  );
+};
+export default Routes;

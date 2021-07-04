@@ -91,6 +91,12 @@ export const Home = ({navigation}) => {
           {/* categories preview */}
           <View>
             <CategoriesPreview
+              title="nike"
+              data={data['nike']}
+              navigation={navigation}
+            />
+
+            <CategoriesPreview
               title="jordan"
               data={data['jordan']}
               navigation={navigation}

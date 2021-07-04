@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {
   View,
   Text,
@@ -11,6 +11,7 @@ import {
 import {width} from '../constants/layout';
 import {colors} from '../constants/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {CartContext} from '../services/CartContext';
 
 // render sizes
 
@@ -38,7 +39,6 @@ const renderImages = (images, setImgSource, imgIndex, setImgIndex) => {
         marginBottom: 20,
       }}>
       {images.map((item, index) => {
-        console.log(imgIndex);
         return (
           <TouchableOpacity
             key={index}
@@ -74,10 +74,16 @@ export const Details = ({navigation, route}) => {
   const data = route.params.item;
   const [imgSource, setImgSource] = useState(route.params.item.images[0]);
   const [imgIndex, setImgIndex] = useState(0);
-  const [cartData, setCartData] = useState([]);
+
+  // get cart data
+  const {cartData, setCartData} = useContext(CartContext);
+
+  console.log({cartData});
 
   const addItemToCart = item => {
-    cartData.push(item);
+    let newCartData = [...cartData, item];
+    setCartData(newCartData);
+    navigation.navigate('Cart');
   };
 
   return (
@@ -181,6 +187,7 @@ export const Details = ({navigation, route}) => {
             <Icon name="heart-outline" size={20} color="white" />
           </TouchableOpacity>
 
+          {/* todo - remove inline styling */}
           <TouchableOpacity
             style={{
               backgroundColor: colors.primary,
