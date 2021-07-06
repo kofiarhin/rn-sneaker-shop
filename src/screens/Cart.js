@@ -12,12 +12,13 @@ import {CartContext} from '../context/CartContext';
 import {colors} from '../constants';
 
 export const Cart = ({navigation, route}) => {
-  const {cartData} = useContext(CartContext);
+  const {cartData, setCartData} = useContext(CartContext);
 
   const getSummary = cartData => {
+    console.log({cartData});
     let total = 0;
     cartData.forEach(item => {
-      total += item.price;
+      total += item.price * item.qty;
     });
 
     return total;
@@ -26,97 +27,142 @@ export const Cart = ({navigation, route}) => {
   return (
     <SafeAreaView>
       <ScrollView>
+        {/* container */}
         <View style={styles.container}>
-          <Text
-            style={{
-              fontSize: 30,
-              textAlign: 'center',
-              marginBottom: 20,
-            }}>
-            {' '}
-            Your Cart{' '}
-          </Text>
+          {cartData.length > 0 ? (
+            <View>
+              {/* cart header */}
+              <Text
+                style={{
+                  fontSize: 30,
+                  textAlign: 'center',
+                  marginBottom: 20,
+                }}>
+                {' '}
+                Your Cart{' '}
+              </Text>
 
-          {
-            // render Cart Content
-            cartData.map((item, index) => {
-              return (
-                <View
-                  key={index}
-                  style={{
-                    flexDirection: 'row',
-                  }}>
-                  <Image
-                    source={item.images[0]}
-                    style={{
-                      width: 200,
-                      height: 200,
-                    }}
-                  />
-
-                  {/* text wrapper */}
-                  <View
-                    style={{
-                      flex: 1,
-                    }}>
-                    <View
+              {
+                // render Cart Content
+                cartData.map((item, index) => {
+                  return (
+                    <TouchableOpacity
+                      onPress={() => navigation.navigate('Details', {item})}
+                      key={index}
                       style={{
                         flexDirection: 'row',
-                        flexWrap: 'wrap',
                       }}>
-                      {/* item name */}
-                      <Text
+                      <Image
+                        source={item.images[0]}
                         style={{
-                          fontSize: 15,
-                          marginBottom: 10,
-                        }}>
-                        {' '}
-                        {item.name}
-                      </Text>
-                    </View>
+                          width: 200,
+                          height: 200,
+                        }}
+                      />
 
-                    <View>
-                      <Text
+                      {/* text wrapper */}
+                      <View
                         style={{
-                          fontSize: 18,
+                          flex: 1,
                         }}>
-                        ${item.price}
-                      </Text>
-                    </View>
-                  </View>
+                        {/* item info */}
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            flexWrap: 'wrap',
+                          }}>
+                          {/* item name */}
+                          <Text
+                            style={{
+                              fontSize: 15,
+                              marginBottom: 10,
+                            }}>
+                            {' '}
+                            {item.name}
+                          </Text>
+                        </View>
+
+                        <View>
+                          <Text
+                            style={{
+                              fontSize: 18,
+                            }}>
+                            ${item.price}
+                          </Text>
+
+                          <Text
+                            style={{
+                              fontSize: 18,
+                            }}>
+                            Qty: {item.qty}{' '}
+                          </Text>
+                        </View>
+                      </View>
+                    </TouchableOpacity>
+                  );
+                })
+              }
+
+              {/* order summary */}
+              <View>
+                <View>
+                  <Text style={styles.summary}>Order Summary</Text>
                 </View>
-              );
-            })
-          }
 
-          {/* order summary */}
-          <View>
+                {/* sub total */}
+                <View style={styles.row}>
+                  <Text style={styles.subTotal}>Sub Total</Text>
+                  <Text style={styles.subTotal}> $0</Text>
+                </View>
+
+                {/* total */}
+
+                {/* total */}
+                <View style={styles.row}>
+                  <Text style={styles.total}> Total</Text>
+                  <Text style={styles.total}> ${getSummary(cartData)} </Text>
+                </View>
+              </View>
+
+              {/* place order - note changed design concept to show bottom tab indicator instead */}
+
+              {/* cta */}
+              <View>
+                {/* place order */}
+                <TouchableOpacity
+                  style={styles.btn}
+                  onPress={() => setCartData([])}>
+                  <Text style={styles.btnText}> Place Order</Text>
+                </TouchableOpacity>
+
+                {/* clear cart */}
+                <TouchableOpacity
+                  style={[
+                    styles.btn,
+                    {
+                      backgroundColor: 'red',
+                    },
+                  ]}
+                  onPress={() => setCartData([])}>
+                  <Text style={styles.btnText}> Clear Cart</Text>
+                </TouchableOpacity>
+              </View>
+              {/* end cta */}
+            </View>
+          ) : (
             <View>
-              <Text style={styles.summary}>Order Summary</Text>
+              <Text
+                style={{
+                  fontSize: 20,
+                  textAlign: 'center',
+                }}>
+                {' '}
+                Your Cart is empty
+              </Text>
             </View>
-
-            {/* sub total */}
-            <View style={styles.row}>
-              <Text style={styles.subTotal}>Sub Total</Text>
-              <Text style={styles.subTotal}> $0</Text>
-            </View>
-
-            {/* total */}
-
-            {/* total */}
-            <View style={styles.row}>
-              <Text style={styles.total}> Total</Text>
-              <Text style={styles.total}> ${getSummary(cartData)} </Text>
-            </View>
-          </View>
-
-          {/* place order - note changed design concept to show bottom tab indicator instead */}
-          <View>
-            <TouchableOpacity style={styles.btn}>
-              <Text style={styles.btnText}> Place Order</Text>
-            </TouchableOpacity>
-          </View>
+          )}
         </View>
+        {/* end container */}
       </ScrollView>
     </SafeAreaView>
   );
@@ -149,6 +195,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     borderRadius: 30,
     paddingVertical: 20,
+    marginBottom: 20,
   },
   btnText: {
     color: 'white',

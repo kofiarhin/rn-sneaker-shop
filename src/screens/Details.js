@@ -12,6 +12,7 @@ import {width} from '../constants/layout';
 import {colors} from '../constants/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {CartContext} from '../context/CartContext';
+import {FavouriteContext} from '../context/FavouriteContext';
 
 // render sizes
 
@@ -75,16 +76,79 @@ export const Details = ({navigation, route}) => {
   const [imgSource, setImgSource] = useState(route.params.item.images[0]);
   const [imgIndex, setImgIndex] = useState(0);
 
-  // get cart data
+  // get cart context
   const {cartData, setCartData} = useContext(CartContext);
+  // favoourite context
+  const {favData, setFavData} = useContext(FavouriteContext);
 
+  const clearCart = () => {
+    setCartData([]);
+  };
   const addItemToCart = item => {
-    // todo -  check for duplicates
+    // check if there is data in cart
+    if (cartData.length > 0) {
+      // check if item already exist
+      let filtered = cartData.find(cartItem => cartItem.name === item.name);
 
-    let newCartData = [item, ...cartData];
+      if (filtered) {
+        filtered.qty += 1;
 
-    setCartData(newCartData);
-    navigation.navigate('Cart');
+        setCartData([...cartData]);
+
+        // redirect to cart screen
+        navigation.navigate('Cart');
+      } else {
+        setCartData([...cartData, {...item, qty: 1}]);
+
+        navigation.navigate('Cart');
+      }
+    } else {
+      let itemToAdd = {...item, qty: 1};
+      setCartData([itemToAdd]);
+      navigation.navigate('Cart');
+    }
+    // let newCartData = [item, ...cartData];
+
+    // setCartData(newCartData);
+    // navigation.navigate('Cart');
+  };
+
+  // add item to favourites
+  const addItemToFavourites = item => {
+    if (favData.length > 0) {
+      // find filetered item
+      let filtered = favData.find(favItem => favItem.name === item.name);
+
+      if (filtered) {
+        filtered.qty += 1;
+        // will refactor to a function later
+        // redirect to favourite screen
+        setFavData([...favData]);
+        navigation.navigate('Favourite');
+      } else {
+        setFavData([...favData, {...item, qty: 1}]);
+        navigation.navigate('Favourite');
+      }
+    } else {
+      // set quty to 1
+      //update favData
+      let newItem = {...item, qty: 1};
+      setFavData([newItem]);
+      navigation.navigate('Favourite');
+    }
+
+    // if (!filtered) {
+    //   const itemToAdd = {...item, quantity: 1};
+    //   favData.push(itemToAdd);
+
+    //   console.log({favData});
+    // } else {
+    //   console.log({item});
+    // }
+    // const newFavData = [item, ...favData];
+    // setFavData(newFavData);
+
+    // navigation.navigate('Favourite');
   };
 
   return (
@@ -93,23 +157,22 @@ export const Details = ({navigation, route}) => {
         flex: 1,
       }}>
       <ScrollView>
+        {/* go back */}
+        <TouchableOpacity
+          style={{
+            backgroundColor: 'black',
+            borderRadius: 15,
+            width: 30,
+            height: 30,
+            marginLeft: 20,
+          }}
+          onPress={() => navigation.goBack()}>
+          <Icon name="chevron-back-outline" color="white" size={25} />
+        </TouchableOpacity>
         <View
           style={{
             paddingHorizontal: 20,
           }}>
-          {/* go Back */}
-          <TouchableOpacity
-            style={{
-              backgroundColor: 'black',
-              borderRadius: 15,
-              position: 'absolute',
-              left: 10,
-              zIndex: 4000,
-            }}
-            onPress={() => navigation.goBack()}>
-            <Icon name="chevron-back-outline" color="white" size={25} />
-          </TouchableOpacity>
-
           {/* item image */}
           <Image
             source={imgSource}
@@ -174,7 +237,8 @@ export const Details = ({navigation, route}) => {
               marginBottom: 20,
               flexDirection: 'row',
               justifyContent: 'center',
-            }}>
+            }}
+            onPress={() => addItemToFavourites(data)}>
             <Text
               style={{
                 color: 'white',

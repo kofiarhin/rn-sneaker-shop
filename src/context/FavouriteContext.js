@@ -1,7 +1,16 @@
-import React, {createContext} from 'react';
+import React, {createContext, useState} from 'react';
 
 export const FavouriteContext = createContext();
 
 export const FavouriteContextProvider = ({children}) => {
-  return <FavouriteContext.Provider>{children}</FavouriteContext.Provider>;
+  const [favData, setFavData] = useState([]);
+  return (
+    <FavouriteContext.Provider
+      value={{
+        favData,
+        setFavData,
+      }}>
+      {children}
+    </FavouriteContext.Provider>
+  );
 };

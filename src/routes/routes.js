@@ -21,6 +21,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import {CartContextProvider} from '../context/CartContext';
 import {DataContextProvider} from '../context/DataContext';
+import {FavouriteContextProvider} from '../context/FavouriteContext';
 
 // MainTabs
 const MainTabs = createBottomTabNavigator();
@@ -110,9 +111,11 @@ const Routes = () => {
   return (
     <DataContextProvider>
       <CartContextProvider>
-        <NavigationContainer>
-          <AppStackScreen />
-        </NavigationContainer>
+        <FavouriteContextProvider>
+          <NavigationContainer>
+            <AppStackScreen />
+          </NavigationContainer>
+        </FavouriteContextProvider>
       </CartContextProvider>
     </DataContextProvider>
   );
