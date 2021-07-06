@@ -8,7 +8,25 @@ export const CategoriesPreview = ({title, data, navigation}) => {
       style={{
         marginBottom: 20,
       }}>
-      <SubHeading> {title} </SubHeading>
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+        <SubHeading> {title} </SubHeading>
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Items', {item: data})}>
+          <Text
+            style={{
+              fontSize: 15,
+              fontFamily: 'Montserrat-Bold',
+            }}>
+            See All
+          </Text>
+        </TouchableOpacity>
+      </View>
       <Animated.ScrollView horizontal>
         {data.items.map(item => {
           return (
@@ -18,10 +36,11 @@ export const CategoriesPreview = ({title, data, navigation}) => {
               <Image
                 source={item.images[0]}
                 style={{
-                  width,
-                  height: 300,
+                  width: width * 0.4,
+                  height: 250,
+                  marginRight: 20,
                 }}
-                resizeMode="cover"
+                resizeMode="contain"
               />
             </TouchableOpacity>
           );
