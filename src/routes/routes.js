@@ -54,17 +54,6 @@ const MainTabsScreen = () => {
         }}
       />
 
-      {/* cart screen */}
-      <MainTabs.Screen
-        name="Cart"
-        component={Cart}
-        options={{
-          tabBarIcon: props => (
-            <Icon name="cart-outline" size={props.size} color={props.color} />
-          ),
-        }}
-      />
-
       {/* favourite screen */}
       <MainTabs.Screen
         name="Favourite"
@@ -72,6 +61,17 @@ const MainTabsScreen = () => {
         options={{
           tabBarIcon: props => (
             <Icon name="heart-outline" size={props.size} color={props.color} />
+          ),
+        }}
+      />
+
+      {/* cart screen */}
+      <MainTabs.Screen
+        name="Cart"
+        component={Cart}
+        options={{
+          tabBarIcon: props => (
+            <Icon name="cart-outline" size={props.size} color={props.color} />
           ),
         }}
       />

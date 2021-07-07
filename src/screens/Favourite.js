@@ -22,6 +22,16 @@ export const Favourite = ({navigation}) => {
         <View style={styles.container}>
           {favData.length > 0 ? (
             <View>
+              <Text
+                style={[
+                  styles.text,
+                  {
+                    marginBottom: 20,
+                  },
+                ]}>
+                {' '}
+                Saved Items
+              </Text>
               {favData.map((item, index) => {
                 return (
                   <View>
@@ -55,7 +65,7 @@ export const Favourite = ({navigation}) => {
                           }}>
                           <Text
                             style={{
-                              fontSize: 18,
+                              fontSize: 15,
                               marginBottom: 10,
                               fontFamily: 'Montserrat-Regular',
                             }}>
@@ -65,7 +75,7 @@ export const Favourite = ({navigation}) => {
                         </View>
                         <Text
                           style={{
-                            fontSize: 18,
+                            fontSize: 15,
                             fontFamily: 'Montserrat-Bold',
                           }}>
                           {' '}
@@ -103,11 +113,12 @@ const styles = StyleSheet.create({
   btn: {
     backgroundColor: 'black',
     paddingVertical: 20,
+    borderRadius: 50,
   },
   btnText: {
     color: 'white',
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 15,
     fontFamily: 'Montserrat-Bold',
   },
   text: {

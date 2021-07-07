@@ -86,13 +86,16 @@ export const Cart = ({navigation, route}) => {
                       style={{
                         flexDirection: 'row',
                       }}>
-                      <Image
-                        source={item.images[0]}
-                        style={{
-                          width: 200,
-                          height: 200,
-                        }}
-                      />
+                      <TouchableOpacity
+                        onPress={() => navigation.navigate('Details', {item})}>
+                        <Image
+                          source={item.images[0]}
+                          style={{
+                            width: 200,
+                            height: 200,
+                          }}
+                        />
+                      </TouchableOpacity>
 
                       {/* text wrapper */}
                       <View
