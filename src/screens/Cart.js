@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import {CartContext} from '../context/CartContext';
 import {colors} from '../constants';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const Cart = ({navigation, route}) => {
   const {cartData, setCartData} = useContext(CartContext);
@@ -24,8 +25,42 @@ export const Cart = ({navigation, route}) => {
     return total;
   };
 
+  const increaseQty = item => {
+    const filtered = cartData.find(cartItem => cartItem.name === item.name);
+
+    if (filtered) {
+      filtered.qty += 1;
+    }
+
+    setCartData([...cartData]);
+  };
+
+  const reduceQty = item => {
+    const filtered = cartData.find(cartItem => cartItem.name === item.name);
+
+    if (filtered && filtered.qty > 1) {
+      filtered.qty -= 1;
+      setCartData([...cartData]);
+    } else if (filtered.qty === 1) {
+      const newCartData = cartData.filter(
+        cartItem => cartItem.name !== item.name,
+      );
+
+      setCartData([...newCartData]);
+    }
+  };
+
   return (
     <SafeAreaView>
+      <View>
+        <TouchableOpacity
+          style={{
+            marginLeft: 20,
+          }}
+          onPress={() => navigation.goBack()}>
+          <Icon name="close-outline" size={40} />
+        </TouchableOpacity>
+      </View>
       <ScrollView>
         {/* container */}
         <View style={styles.container}>
@@ -46,8 +81,7 @@ export const Cart = ({navigation, route}) => {
                 // render Cart Content
                 cartData.map((item, index) => {
                   return (
-                    <TouchableOpacity
-                      onPress={() => navigation.navigate('Details', {item})}
+                    <View
                       key={index}
                       style={{
                         flexDirection: 'row',
@@ -86,19 +120,36 @@ export const Cart = ({navigation, route}) => {
                           <Text
                             style={{
                               fontSize: 18,
+                              marginBottom: 10,
                             }}>
                             ${item.price}
                           </Text>
 
-                          <Text
+                          {/* qty cta */}
+                          <View
                             style={{
-                              fontSize: 18,
+                              flexDirection: 'row',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              width: 60,
+                              height: 50,
                             }}>
-                            Qty: {item.qty}{' '}
-                          </Text>
+                            <TouchableOpacity onPress={() => reduceQty(item)}>
+                              <Text style={[styles.text, {fontSize: 20}]}>
+                                -
+                              </Text>
+                            </TouchableOpacity>
+                            <Text style={styles.text}>{item.qty} </Text>
+
+                            <TouchableOpacity onPress={() => increaseQty(item)}>
+                              <Text style={[styles.text, {fontSize: 20}]}>
+                                +
+                              </Text>
+                            </TouchableOpacity>
+                          </View>
                         </View>
                       </View>
-                    </TouchableOpacity>
+                    </View>
                   );
                 })
               }
@@ -201,5 +252,10 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontSize: 18,
+  },
+
+  text: {
+    fontSize: 18,
+    fontFamily: 'Montserrat-Bold',
   },
 });

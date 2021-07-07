@@ -115,40 +115,39 @@ export const Details = ({navigation, route}) => {
 
   // add item to favourites
   const addItemToFavourites = item => {
-    if (favData.length > 0) {
-      // find filetered item
-      let filtered = favData.find(favItem => favItem.name === item.name);
+    setFavData([item, ...favData]);
+    navigation.navigate('Favourite');
+  };
 
-      if (filtered) {
-        filtered.qty += 1;
-        // will refactor to a function later
-        // redirect to favourite screen
-        setFavData([...favData]);
-        navigation.navigate('Favourite');
-      } else {
-        setFavData([...favData, {...item, qty: 1}]);
-        navigation.navigate('Favourite');
-      }
-    } else {
-      // set quty to 1
-      //update favData
-      let newItem = {...item, qty: 1};
-      setFavData([newItem]);
-      navigation.navigate('Favourite');
+  const renderFavCta = item => {
+    const filtered = favData.find(favItem => favItem.name === item.name);
+
+    if (!filtered) {
+      return (
+        <TouchableOpacity
+          style={{
+            backgroundColor: 'black',
+            padding: 20,
+            borderRadius: 40,
+            marginBottom: 20,
+            flexDirection: 'row',
+            justifyContent: 'center',
+          }}
+          onPress={() => addItemToFavourites(data)}>
+          <Text
+            style={{
+              color: 'white',
+              fontSize: 15,
+              fontFamily: 'Montserrat-Bold',
+              marginRight: 10,
+            }}>
+            Add to Favourite
+          </Text>
+
+          <Icon name="heart-outline" size={20} color="white" />
+        </TouchableOpacity>
+      );
     }
-
-    // if (!filtered) {
-    //   const itemToAdd = {...item, quantity: 1};
-    //   favData.push(itemToAdd);
-
-    //   console.log({favData});
-    // } else {
-    //   console.log({item});
-    // }
-    // const newFavData = [item, ...favData];
-    // setFavData(newFavData);
-
-    // navigation.navigate('Favourite');
   };
 
   return (
@@ -160,14 +159,10 @@ export const Details = ({navigation, route}) => {
         {/* go back */}
         <TouchableOpacity
           style={{
-            backgroundColor: 'black',
-            borderRadius: 15,
-            width: 30,
-            height: 30,
             marginLeft: 20,
           }}
           onPress={() => navigation.goBack()}>
-          <Icon name="chevron-back-outline" color="white" size={25} />
+          <Icon name="close-outline" size={30} />
         </TouchableOpacity>
         <View
           style={{
@@ -229,28 +224,9 @@ export const Details = ({navigation, route}) => {
 
           {/* cta - add to cart */}
 
-          <TouchableOpacity
-            style={{
-              backgroundColor: 'black',
-              padding: 20,
-              borderRadius: 40,
-              marginBottom: 20,
-              flexDirection: 'row',
-              justifyContent: 'center',
-            }}
-            onPress={() => addItemToFavourites(data)}>
-            <Text
-              style={{
-                color: 'white',
-                fontSize: 15,
-                fontFamily: 'Montserrat-Bold',
-                marginRight: 10,
-              }}>
-              Add to Favourite
-            </Text>
+          {/* check if item already added to favourite */}
 
-            <Icon name="heart-outline" size={20} color="white" />
-          </TouchableOpacity>
+          {renderFavCta(data)}
 
           {/* todo - remove inline styling */}
           <TouchableOpacity

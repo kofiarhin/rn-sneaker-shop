@@ -24,36 +24,56 @@ export const Favourite = ({navigation}) => {
             <View>
               {favData.map((item, index) => {
                 return (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate('Details', {item})}
-                    style={{
-                      marginBottom: 20,
-                    }}
-                    key={index}>
-                    <Image
-                      source={item.images[0]}
+                  <View>
+                    <TouchableOpacity
+                      onPress={() => navigation.navigate('Details', {item})}
                       style={{
-                        width: '100%',
-                        height: 200,
+                        marginBottom: 20,
+                        flexDirection: 'row',
                       }}
-                    />
-                    <Text
-                      style={{
-                        fontSize: 18,
-                        marginBottom: 10,
-                      }}>
-                      {' '}
-                      {item.name}{' '}
-                    </Text>
-                    <Text
-                      style={{
-                        fontSize: 20,
-                        fontFamily: 'Montserrat-Bold',
-                      }}>
-                      {' '}
-                      Qty: {item.qty}{' '}
-                    </Text>
-                  </TouchableOpacity>
+                      key={index}>
+                      {/* iamge wrapper */}
+                      <View>
+                        <Image
+                          source={item.images[0]}
+                          style={{
+                            width: 200,
+                            height: 200,
+                          }}
+                        />
+                      </View>
+
+                      {/* text wrapper */}
+                      <View
+                        style={{
+                          flex: 1,
+                        }}>
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            flexWrap: 'wrap',
+                          }}>
+                          <Text
+                            style={{
+                              fontSize: 18,
+                              marginBottom: 10,
+                              fontFamily: 'Montserrat-Regular',
+                            }}>
+                            {' '}
+                            {item.name}
+                          </Text>
+                        </View>
+                        <Text
+                          style={{
+                            fontSize: 18,
+                            fontFamily: 'Montserrat-Bold',
+                          }}>
+                          {' '}
+                          ${item.price}{' '}
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
                 );
               })}
 
