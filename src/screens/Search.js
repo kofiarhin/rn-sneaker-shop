@@ -3,28 +3,35 @@ import React, {useContext} from 'react';
 import {View, Text, SafeAreaView, TextInput, StyleSheet} from 'react-native';
 import {Searchbar} from 'react-native-paper';
 import {DataContext} from '../context/DataContext';
+import {Categories} from '../components/Categories/Categories.component';
 
 const renderCategories = () => {
   return <Text>Render cat</Text>;
 };
 
-export const Search = () => {
+export const Search = otherProps => {
   const {data} = useContext(DataContext);
   const values = Object.values(data);
 
-  let transformed = [];
+  // flatten array
+  const flattenArray = data => {
+    let transformed = [];
 
-  values.forEach(val => {
-    const {items} = val;
+    data.forEach(item => {
+      const {items} = item;
 
-    items.forEach(item => {
-      console.log(item);
-      transformed.push(item);
+      items.forEach(item => {
+        transformed.push(item);
+      });
     });
-  });
+
+    return transformed;
+  };
+
+  let transformed = flattenArray(values);
 
   // flatten array
-  const categories = Object.keys(data);
+  const categoriesData = Object.keys(data);
 
   return (
     <SafeAreaView
@@ -37,13 +44,7 @@ export const Search = () => {
         </View>
 
         <View>
-          {categories.map(item => {
-            return (
-              <View>
-                <Text style={styles.text}> {item} </Text>
-              </View>
-            );
-          })}
+          <Categories data={categoriesData} {...otherProps} />
         </View>
       </View>
     </SafeAreaView>
