@@ -1,9 +1,9 @@
-import {transform} from '@babel/core';
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {View, Text, SafeAreaView, TextInput, StyleSheet} from 'react-native';
 import {Searchbar} from 'react-native-paper';
 import {DataContext} from '../context/DataContext';
 import {Categories} from '../components/Categories/Categories.component';
+import {SearchResult} from '../components/SearchResult/SearchResult.component';
 
 const renderCategories = () => {
   return <Text>Render cat</Text>;
@@ -11,6 +11,9 @@ const renderCategories = () => {
 
 export const Search = otherProps => {
   const {data} = useContext(DataContext);
+  const [filtered, setFiltered] = useState([]);
+  const [search, setSearch] = useState(null);
+
   const values = Object.values(data);
 
   // flatten array
@@ -33,6 +36,10 @@ export const Search = otherProps => {
   // flatten array
   const categoriesData = Object.keys(data);
 
+  const searchItem = text => {
+    setSearch(text);
+  };
+
   return (
     <SafeAreaView
       style={{
@@ -40,11 +47,18 @@ export const Search = otherProps => {
       }}>
       <View style={styles.container}>
         <View style={styles.spacer}>
-          <Searchbar placeholder="Search" />
+          <Searchbar
+            placeholder="Search"
+            onChangeText={text => searchItem(text)}
+          />
         </View>
 
         <View>
-          <Categories data={categoriesData} {...otherProps} />
+          {search ? (
+            <SearchResult search={search} {...otherProps} />
+          ) : (
+            <Categories {...otherProps} />
+          )}
         </View>
       </View>
     </SafeAreaView>

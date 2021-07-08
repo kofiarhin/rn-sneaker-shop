@@ -6,14 +6,13 @@ export const Categories = ({navigation}) => {
   const {data} = useContext(DataContext);
   const values = Object.values(data);
 
-  console.log(navigation);
-
   return (
     <ScrollView>
       <View>
         {values.map(item => {
           return (
             <TouchableOpacity
+              key={item.name}
               onPress={() => navigation.navigate('Items', {item})}
               style={{
                 flexDirection: 'row',
