@@ -52,15 +52,6 @@ export const Cart = ({navigation, route}) => {
 
   return (
     <SafeAreaView>
-      <View>
-        <TouchableOpacity
-          style={{
-            marginLeft: 20,
-          }}
-          onPress={() => navigation.goBack()}>
-          <Icon name="close-outline" size={40} />
-        </TouchableOpacity>
-      </View>
       <ScrollView>
         {/* container */}
         <View style={styles.container}>

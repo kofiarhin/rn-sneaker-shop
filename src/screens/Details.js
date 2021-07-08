@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  StyleSheet,
 } from 'react-native';
 import {width} from '../constants/layout';
 import {colors} from '../constants/colors';
@@ -14,67 +15,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {CartContext} from '../context/CartContext';
 import {FavouriteContext} from '../context/FavouriteContext';
 
-// render sizes
-
-const renderSizes = sizes => {
-  return sizes.map((size, index) => {
-    return (
-      <View key={index} style={{}}>
-        <Text
-          style={{
-            fontSize: 20,
-          }}>
-          {size}
-        </Text>
-      </View>
-    );
-  });
-};
-
-// render images
-const renderImages = (images, setImgSource, imgIndex, setImgIndex) => {
-  return (
-    <View
-      style={{
-        flexDirection: 'row',
-        marginBottom: 20,
-      }}>
-      {images.map((item, index) => {
-        return (
-          <TouchableOpacity
-            key={index}
-            style={{
-              width: width / 4 - 20,
-              marginRight: 10,
-              borderWidth: 2,
-              borderRadius: 5,
-              borderColor: `${
-                imgIndex === index ? colors.grey : 'transparent'
-              }`,
-            }}
-            onPress={() => {
-              setImgSource(item);
-              setImgIndex(index);
-            }}>
-            <Image
-              source={item}
-              style={{
-                width: '100%',
-                height: 70,
-              }}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
-        );
-      })}
-    </View>
-  );
-};
-
 export const Details = ({navigation, route}) => {
   const data = route.params.item;
   const [imgSource, setImgSource] = useState(route.params.item.images[0]);
   const [imgIndex, setImgIndex] = useState(0);
+  const [sizeIndex, setSizeIndex] = useState(0);
 
   // get cart context
   const {cartData, setCartData} = useContext(CartContext);
@@ -107,10 +52,6 @@ export const Details = ({navigation, route}) => {
       setCartData([itemToAdd]);
       navigation.navigate('Cart');
     }
-    // let newCartData = [item, ...cartData];
-
-    // setCartData(newCartData);
-    // navigation.navigate('Cart');
   };
 
   // add item to favourites
@@ -148,6 +89,71 @@ export const Details = ({navigation, route}) => {
         </TouchableOpacity>
       );
     }
+  };
+
+  // render images
+  const renderImages = (images, setImgSource, imgIndex, setImgIndex) => {
+    return (
+      <View
+        style={{
+          flexDirection: 'row',
+          marginBottom: 20,
+        }}>
+        {images.map((item, index) => {
+          return (
+            <TouchableOpacity
+              key={index}
+              style={{
+                width: width / 4 - 20,
+                marginRight: 10,
+                borderWidth: 2,
+                borderRadius: 5,
+                borderColor: `${
+                  imgIndex === index ? colors.grey : 'transparent'
+                }`,
+              }}
+              onPress={() => {
+                setImgSource(item);
+                setImgIndex(index);
+              }}>
+              <Image
+                source={item}
+                style={{
+                  width: '100%',
+                  height: 70,
+                }}
+                resizeMode="contain"
+              />
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+    );
+  };
+
+  // render sizes
+  const renderSizes = sizes => {
+    return sizes.map((size, index) => {
+      return (
+        <TouchableOpacity
+          key={index}
+          style={{
+            marginRight: 10,
+            backgroundColor: sizeIndex === index ? colors.primary : 'white',
+            borderRadius: 50,
+            padding: 10,
+          }}
+          onPress={() => setSizeIndex(index)}>
+          <Text
+            style={{
+              fontSize: 20,
+              color: sizeIndex === index ? 'white' : 'black',
+            }}>
+            {size}
+          </Text>
+        </TouchableOpacity>
+      );
+    });
   };
 
   return (
@@ -207,9 +213,12 @@ export const Details = ({navigation, route}) => {
 
           {/* sizes */}
           <Text
-            style={{
-              fontSize: 20,
-            }}>
+            style={[
+              styles.textBold,
+              {
+                marginBottom: 10,
+              },
+            ]}>
             Sizes:
           </Text>
 
@@ -257,3 +266,14 @@ export const Details = ({navigation, route}) => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 20,
+    fontFamily: 'Montserrat-Regular',
+  },
+  textBold: {
+    fontSize: 20,
+    fontFamily: 'Montserrat-Bold',
+  },
+});
