@@ -9,10 +9,10 @@ export const Categories = ({navigation}) => {
   return (
     <ScrollView>
       <View>
-        {values.map(item => {
+        {values.map((item, index) => {
           return (
             <TouchableOpacity
-              key={item.name}
+              key={index}
               onPress={() => navigation.navigate('Items', {item})}
               style={{
                 flexDirection: 'row',

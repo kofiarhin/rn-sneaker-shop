@@ -19,9 +19,11 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
+// context
 import {CartContextProvider} from '../context/CartContext';
 import {DataContextProvider} from '../context/DataContext';
 import {FavouriteContextProvider} from '../context/FavouriteContext';
+import {AuthContextProvider} from '../context/AuthContext';
 
 // MainTabs
 const MainTabs = createBottomTabNavigator();
@@ -109,15 +111,17 @@ const AppStackScreen = () => {
 
 const Routes = () => {
   return (
-    <DataContextProvider>
-      <CartContextProvider>
-        <FavouriteContextProvider>
-          <NavigationContainer>
-            <AppStackScreen />
-          </NavigationContainer>
-        </FavouriteContextProvider>
-      </CartContextProvider>
-    </DataContextProvider>
+    <AuthContextProvider>
+      <DataContextProvider>
+        <CartContextProvider>
+          <FavouriteContextProvider>
+            <NavigationContainer>
+              <AppStackScreen />
+            </NavigationContainer>
+          </FavouriteContextProvider>
+        </CartContextProvider>
+      </DataContextProvider>
+    </AuthContextProvider>
   );
 };
 export default Routes;

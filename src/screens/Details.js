@@ -69,7 +69,6 @@ export const Details = ({navigation, route}) => {
           style={{
             backgroundColor: 'black',
             padding: 20,
-            borderRadius: 40,
             marginBottom: 20,
             flexDirection: 'row',
             justifyContent: 'center',
@@ -233,8 +232,7 @@ export const Details = ({navigation, route}) => {
 
           {/* cta - add to cart */}
 
-          {/* check if item already added to favourite */}
-
+          {/* render favourites */}
           {renderFavCta(data)}
 
           {/* todo - remove inline styling */}
@@ -242,7 +240,6 @@ export const Details = ({navigation, route}) => {
             style={{
               backgroundColor: colors.primary,
               padding: 20,
-              borderRadius: 40,
             }}
             onPress={() => addItemToCart(data)}>
             <Text
