@@ -33,7 +33,8 @@ const MainTabsScreen = () => {
       tabBarOptions={{
         showLabel: false,
         activeTintColor: colors.primary,
-      }}>
+      }}
+      initialRouteName="Profile">
       {/* home screen */}
       <MainTabs.Screen
         name="Home"
@@ -99,8 +100,7 @@ const AppStackScreen = () => {
     <AppStack.Navigator
       screenOptions={{
         headerShown: false,
-      }}
-      initialRouteName="MainTabs">
+      }}>
       <AppStack.Screen name="Landing" component={Landing} />
       <AppStack.Screen name="MainTabs" component={MainTabsScreen} />
       <AppStack.Screen name="Items" component={Items} />

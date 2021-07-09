@@ -1,20 +1,28 @@
 import React, {useContext} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {AuthContext} from '../../context/AuthContext';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {UserOptions} from '../UserOptions/UserOptions.component';
+
 export const UserProfile = () => {
   const {user, setUser} = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.text, {textAlign: 'center'}]}>
-        {' '}
-        Welcome {user.name}{' '}
-      </Text>
+      <View>
+        <Text style={[styles.text, {textAlign: 'center'}]}>Welcome!</Text>
 
-      {/* logout */}
-      <TouchableOpacity style={styles.btn} onPress={() => setUser(null)}>
-        <Text style={styles.btnText}> Logout </Text>
-      </TouchableOpacity>
+        <Text
+          style={[
+            styles.text,
+            {textAlign: 'center', textTransform: 'capitalize', fontSize: 25},
+          ]}>
+          {' '}
+          {user.name}{' '}
+        </Text>
+      </View>
+
+      <UserOptions />
     </View>
   );
 };

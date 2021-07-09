@@ -27,10 +27,10 @@ export const Login = () => {
           {' '}
           Come on in
         </Text>
+
         <Text style={[styles.text, {textAlign: 'center'}]}>
           {' '}
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam,
-          eos!
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit
         </Text>
       </View>
 
