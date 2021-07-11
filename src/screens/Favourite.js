@@ -34,14 +34,13 @@ export const Favourite = ({navigation}) => {
               </Text>
               {favData.map((item, index) => {
                 return (
-                  <View>
+                  <View key={index}>
                     <TouchableOpacity
                       onPress={() => navigation.navigate('Details', {item})}
                       style={{
                         marginBottom: 20,
                         flexDirection: 'row',
-                      }}
-                      key={index}>
+                      }}>
                       {/* iamge wrapper */}
                       <View>
                         <Image

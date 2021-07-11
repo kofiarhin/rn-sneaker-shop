@@ -24,6 +24,7 @@ import {CartContextProvider} from '../context/CartContext';
 import {DataContextProvider} from '../context/DataContext';
 import {FavouriteContextProvider} from '../context/FavouriteContext';
 import {AuthContextProvider} from '../context/AuthContext';
+import {OrdersContextProvider} from '../context/Orders.context';
 
 // MainTabs
 const MainTabs = createBottomTabNavigator();
@@ -113,13 +114,15 @@ const Routes = () => {
   return (
     <AuthContextProvider>
       <DataContextProvider>
-        <CartContextProvider>
-          <FavouriteContextProvider>
-            <NavigationContainer>
-              <AppStackScreen />
-            </NavigationContainer>
-          </FavouriteContextProvider>
-        </CartContextProvider>
+        <OrdersContextProvider>
+          <CartContextProvider>
+            <FavouriteContextProvider>
+              <NavigationContainer>
+                <AppStackScreen />
+              </NavigationContainer>
+            </FavouriteContextProvider>
+          </CartContextProvider>
+        </OrdersContextProvider>
       </DataContextProvider>
     </AuthContextProvider>
   );

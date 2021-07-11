@@ -268,6 +268,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     fontFamily: 'Montserrat-Regular',
+    marginBottom: 10,
   },
   textBold: {
     fontSize: 20,
