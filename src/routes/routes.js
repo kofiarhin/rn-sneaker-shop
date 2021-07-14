@@ -34,8 +34,7 @@ const MainTabsScreen = () => {
       tabBarOptions={{
         showLabel: false,
         activeTintColor: colors.primary,
-      }}
-      initialRouteName="Profile">
+      }}>
       {/* home screen */}
       <MainTabs.Screen
         name="Home"

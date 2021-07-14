@@ -22,16 +22,7 @@ export const Favourite = ({navigation}) => {
         <View style={styles.container}>
           {favData.length > 0 ? (
             <View>
-              <Text
-                style={[
-                  styles.text,
-                  {
-                    marginBottom: 20,
-                  },
-                ]}>
-                {' '}
-                Saved Items
-              </Text>
+              <Text style={styles.heading}> Saved Items</Text>
               {favData.map((item, index) => {
                 return (
                   <View key={index}>
@@ -95,7 +86,49 @@ export const Favourite = ({navigation}) => {
             </View>
           ) : (
             <View>
-              <Text style={styles.text}>You have not saved any item yet!</Text>
+              <Text style={styles.heading}>Saved Items</Text>
+
+              {/* text wrapper */}
+              <View
+                style={{
+                  marginBottom: 20,
+                }}>
+                <Text
+                  style={[
+                    styles.text,
+                    {textAlign: 'center', marginBottom: 20},
+                  ]}>
+                  {' '}
+                  Noting Saved yet{' '}
+                </Text>
+
+                <Text
+                  style={[
+                    styles.text,
+                    {
+                      textAlign: 'center',
+                    },
+                  ]}>
+                  {' '}
+                  No Worries start by saving items by clicking the little heart
+                  icon
+                </Text>
+              </View>
+
+              {/* continue shopping cta */}
+              <View>
+                <TouchableOpacity
+                  style={styles.btn}
+                  // go to home screen
+                  onPress={() => {
+                    navigation.navigate('Home');
+                  }}>
+                  <Text style={[styles.text, styles.btnText]}>
+                    {' '}
+                    Start Shopping{' '}
+                  </Text>
+                </TouchableOpacity>
+              </View>
             </View>
           )}
         </View>
@@ -112,7 +145,6 @@ const styles = StyleSheet.create({
   btn: {
     backgroundColor: 'black',
     paddingVertical: 20,
-    borderRadius: 50,
   },
   btnText: {
     color: 'white',
@@ -121,7 +153,14 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
   },
   text: {
-    fontSize: 20,
+    fontSize: 18,
     textAlign: 'center',
+    fontFamily: 'Montserrat-Regular',
+  },
+  heading: {
+    fontSize: 20,
+    fontFamily: 'Montserrat-Bold',
+    textAlign: 'center',
+    marginBottom: 20,
   },
 });

@@ -58,15 +58,7 @@ export const Cart = ({navigation, route}) => {
           {cartData.length > 0 ? (
             <View>
               {/* cart header */}
-              <Text
-                style={{
-                  fontSize: 30,
-                  textAlign: 'center',
-                  marginBottom: 20,
-                }}>
-                {' '}
-                Your Cart{' '}
-              </Text>
+              <Text style={styles.heading}> Your Cart </Text>
 
               {
                 // render Cart Content
@@ -185,7 +177,7 @@ export const Cart = ({navigation, route}) => {
                   style={[
                     styles.btn,
                     {
-                      backgroundColor: 'red',
+                      backgroundColor: '#CF0000',
                     },
                   ]}
                   onPress={() => setCartData([])}>
@@ -196,14 +188,7 @@ export const Cart = ({navigation, route}) => {
             </View>
           ) : (
             <View>
-              <Text
-                style={{
-                  fontSize: 20,
-                  textAlign: 'center',
-                }}>
-                {' '}
-                Your Cart is empty
-              </Text>
+              <Text style={styles.heading}> Your Cart is empty</Text>
             </View>
           )}
         </View>
@@ -238,7 +223,6 @@ const styles = StyleSheet.create({
   },
   btn: {
     backgroundColor: colors.primary,
-    borderRadius: 30,
     paddingVertical: 20,
     marginBottom: 20,
   },
@@ -251,5 +235,12 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18,
     fontFamily: 'Montserrat-Bold',
+  },
+  heading: {
+    fontFamily: 'Montserrat-Bold',
+    textAlign: 'center',
+    fontSize: 20,
+    textTransform: 'capitalize',
+    marginBottom: 20,
   },
 });
