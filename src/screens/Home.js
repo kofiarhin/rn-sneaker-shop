@@ -8,24 +8,41 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  StyleSheet,
 } from 'react-native';
 import styled from 'styled-components/native';
 import Data from '../Data';
 import {width, height} from '../constants/layout';
 import {DefaultText, Container, Heading} from '../constants';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {CategoriesPreview} from '../components/CategoriesPreview/CategoriesPreview';
-
+import {HeaderCart} from '../components/HeaderCart/headerCart.component';
+// remove this to constants
+//already using title
+//change to styld text
 const Title = styled.Text`
   font-size: 20px;
   text-align: center;
   font-family: Montserrat-bold;
 `;
 
+//render header
 const renderHeader = () => {
   return (
-    <View>
-      <Title> Esco Kicks </Title>
+    <View style={styles.textWrapper}>
+      {/* show number of items in cart */}
+      <View>
+        <Text style={styles.logoText}>Esco Kicks</Text>
+      </View>
+
+      <View>
+        {/* show num items in cart */}
+
+        <HeaderCart />
+      </View>
+
+      {/* icon */}
     </View>
   );
 };
@@ -124,3 +141,22 @@ export const Home = ({navigation}) => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 30,
+    textAlign: 'center',
+    fontFamily: 'Montserrat-Bold',
+    marginBottom: 30,
+  },
+
+  logoText: {
+    fontSize: 20,
+  },
+  textWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+  },
+});

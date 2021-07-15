@@ -14,6 +14,7 @@ import {
   Profile,
   Details,
   Items,
+  Success,
 } from '../screens/index';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -105,6 +106,7 @@ const AppStackScreen = () => {
       <AppStack.Screen name="MainTabs" component={MainTabsScreen} />
       <AppStack.Screen name="Items" component={Items} />
       <AppStack.Screen name="Details" component={Details} />
+      <AppStack.Screen name="Success" component={Success} />
     </AppStack.Navigator>
   );
 };

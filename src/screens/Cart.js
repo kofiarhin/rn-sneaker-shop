@@ -166,9 +166,11 @@ export const Cart = ({navigation, route}) => {
               {/* cta */}
               <View>
                 {/* place order */}
+
+                {/* redirect to success screen  and clear cart */}
                 <TouchableOpacity
                   style={styles.btn}
-                  onPress={() => setCartData([])}>
+                  onPress={() => navigation.navigate('Success')}>
                   <Text style={styles.btnText}> Place Order</Text>
                 </TouchableOpacity>
 
