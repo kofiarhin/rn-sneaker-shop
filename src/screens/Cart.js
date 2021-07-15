@@ -141,14 +141,17 @@ export const Cart = ({navigation, route}) => {
               }
 
               {/* order summary */}
-              <View>
+              <View
+                style={{
+                  marginBottom: 20,
+                }}>
                 <View>
                   <Text style={styles.summary}>Order Summary</Text>
                 </View>
 
                 {/* sub total */}
                 <View style={styles.row}>
-                  <Text style={styles.subTotal}>Sub Total</Text>
+                  <Text style={styles.subTotal}>Tax</Text>
                   <Text style={styles.subTotal}> $0</Text>
                 </View>
 
@@ -160,8 +163,6 @@ export const Cart = ({navigation, route}) => {
                   <Text style={styles.total}> ${getSummary(cartData)} </Text>
                 </View>
               </View>
-
-              {/* place order - note changed design concept to show bottom tab indicator instead */}
 
               {/* cta */}
               <View>
